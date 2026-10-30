@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: trailbound-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: trailbound
+      POSTGRES_USER: trailbound
+      POSTGRES_PASSWORD: trailbound_dev
+    ports:
+      - "55434:5432"
+    volumes:
+      - trailbound_pgdata:/var/lib/postgresql/data
+
+volumes:
+  trailbound_pgdata:
